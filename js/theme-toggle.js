@@ -1,3 +1,7 @@
+// =============================================
+// THEME TOGGLE - Dark mode default
+// =============================================
+
 const getThemePreference = () => {
     if (localStorage.getItem('theme')) {
         return localStorage.getItem('theme');
@@ -12,20 +16,6 @@ const setTheme = (theme) => {
         document.documentElement.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    const theme = getThemePreference();
-    setTheme(theme);
-
-    updateToggleIcon(theme);
-});
-
-const toggleTheme = () => {
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    updateToggleIcon(newTheme);
 };
 
 const updateToggleIcon = (theme) => {
@@ -43,9 +33,32 @@ const updateToggleIcon = (theme) => {
     }
 };
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+const toggleTheme = () => {
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    updateToggleIcon(newTheme);
+};
+
+(function () {
+    const theme = getThemePreference();
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const theme = getThemePreference();
+    setTheme(theme);
+    updateToggleIcon(theme);
+});
+
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
     if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-        updateToggleIcon(e.matches ? 'dark' : 'light');
+        const newTheme = e.matches ? 'light' : 'dark';
+        setTheme(newTheme);
+        updateToggleIcon(newTheme);
     }
 });
