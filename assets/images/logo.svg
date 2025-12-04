@@ -1,0 +1,17 @@
+<svg width="280" height="120" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- < bracket -->
+    <path d="M20 60 L50 30 L56 36 L32 60 L56 84 L50 90 Z" fill="#808080"/>
+
+    <!-- J letter -->
+    <path d="M80 35 H105 V42 H95 V75 Q95 90 80 90 H74 V83 H79 Q88 83 88 75 V42 H80 V35Z" fill="#FFFFFF"/>
+
+    <!-- P letter -->
+    <path d="M115 35 H150 Q168 35 168 52 Q168 69 150 69 H130 V90 H123 V35Z M130 42 V62 H148 Q161 62 161 52 Q161 42 148 42 H130Z"
+          fill="#FFFFFF"/>
+
+    <!-- / -->
+    <path d="M185 90 L210 30 L217 33 L192 93 Z" fill="#808080"/>
+
+    <!-- > bracket -->
+    <path d="M260 60 L230 30 L224 36 L248 60 L224 84 L230 90 Z" fill="#808080"/>
+</svg>
